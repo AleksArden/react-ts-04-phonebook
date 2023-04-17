@@ -4,14 +4,14 @@ import { nanoid } from 'nanoid';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
-import { IContact, INewContact } from 'type/contact';
+import { IContact, ContactWithoutId } from 'type/contact';
 import css from './App.module.css';
 
 export const App = () => {
   const [contacts, setContacts] = useState<IContact[]>(
     () => JSON.parse(window.localStorage.getItem('contacts') || 'null') ?? []
   );
-  const addContact = (data: INewContact): void => {
+  const addContact = (data: ContactWithoutId): void => {
     const newContact: IContact = {
       id: nanoid(),
       ...data,

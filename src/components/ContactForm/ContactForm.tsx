@@ -3,11 +3,11 @@ import { useState } from 'react';
 
 import css from './ContactForm.module.css';
 
-import { IContact, INewContact } from 'type/contact';
+import { IContact, ContactWithoutId } from 'type/contact';
 
 interface IProps {
   contacts: IContact[],
-  addContact: (data: INewContact) => void
+  addContact: (data: ContactWithoutId) => void
 }
 
 export const ContactForm = ({ contacts, addContact }: IProps) => {
@@ -35,7 +35,7 @@ export const ContactForm = ({ contacts, addContact }: IProps) => {
     hasSameName || setName('');
     hasSameName || setNumber('');
     
-    // hasSameName || (setName('') && hasSameName) || setNumber('');
+
   };
   return (
     <form className={css.form} onSubmit={handleSubmit}>

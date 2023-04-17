@@ -3,7 +3,5 @@ export interface IContact {
     number: string,
     id: string
 }
-export interface INewContact {
-    name: string,
-    number: string,
-}
+
+export type ContactWithoutId = Omit<IContact, 'id'>
